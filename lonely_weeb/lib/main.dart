@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'widgets/findfriends.dart';
+import 'widgets/profile.dart';
+import 'widgets/searchanime.dart';
+import 'widgets/chat.dart';
 import 'splash.dart';
 
 void main() {
@@ -17,7 +20,7 @@ class LonelyWeeb extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Splash(),
+      home: MyHomePage(title: "Lonely Weeb",),
     );
   }
 }
@@ -32,11 +35,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // Widget topWidget;
+  // Widget mainWidget;
 
-  void changeTop(Widget top) {
+  void changeMain(Widget w) {
     setState(() {
-      // topWidget = top;
+      // mainWidget = w;
     });
   }
 
@@ -50,9 +53,52 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Stack(
         children: <Widget>[
           Center(),
+          // Put find friends, searchanime, profile, chat things overtop of eachother i guess
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget> [
+            Expanded(
+              flex: 2,
+              child: DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+                child: Text('Lonely Weeb'),
+              )
+            ),
+            Expanded(
+              flex: 8,
+              child: ListView(
+                padding: EdgeInsets.zero,
+                children: [
+                  ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: new AssetImage('assets/testImage/marine.png'),
+                      child: GestureDetector(onTap: () { /* show profile i guess */ }),
+                    ),
+                    title: const Text('Houshou Marine'),
+                    onTap: () {
+                      // Update the state of the app.
+                      // ...
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Item 2'),
+                    onTap: () {
+                      // Update the state of the app.
+                      // ...
+                    },
+                  ),
+                ],
+              )
+            ),
+          ]
+        ),
+      ),
     );
   }
 }
