@@ -6,7 +6,10 @@ class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(child: Text('Splash Screen', style: TextStyle(fontSize: 26, font),),
+      body: Container(
+        child: Text('Splash Screen',
+            style: TextStyle(fontSize: 42, fontFamily: "RussoOne")),
+      ),
     );
   }
 }
