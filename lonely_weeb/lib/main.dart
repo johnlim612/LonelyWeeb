@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'widgets/findfriends.dart';
-import 'widgets/profile.dart';
-import 'widgets/searchanime.dart';
-import 'widgets/chat.dart';
-import 'splash.dart';
+import 'package:lonely_weeb/splash.dart';
+// import 'widgets/findfriends.dart';
+// import 'widgets/profile.dart';
+// import 'widgets/searchanime.dart';
+// import 'widgets/chat.dart';
+// import 'splash.dart';
 
 void main() {
   runApp(LonelyWeeb());
@@ -20,7 +21,8 @@ class LonelyWeeb extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: "Lonely Weeb",),
+      // home: MyHomePage(title: "Lonely Weeb",),
+      home: Splash(),
     );
   }
 }
