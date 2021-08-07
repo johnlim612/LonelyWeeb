@@ -19,16 +19,16 @@ define("main_module.bootstrap", ["web_entrypoint.dart", "dart_sdk"], function(ap
          main();
       });
     }
-    window.$dartAppId = "iNZvGp7Z8burG4ywyGqA9A==";
+    window.$dartAppId = "+zZJLXG/DpGOXDYBpuV/8A==";
 window.$dartReloadConfiguration = "ReloadConfiguration.none";
 window.$dartModuleStrategy = "require-js";
 window.$loadModuleConfig = require;
 window.$dwdsVersion = "11.0.2";
-window.$dwdsDevHandlerPath = "http://localhost:59884/$dwdsSseHandler";
+window.$dwdsDevHandlerPath = "http://localhost:51375/$dwdsSseHandler";
 window.$dwdsEnableDevtoolsLaunch = true;
 window.$dartEntrypointPath = "main_module.bootstrap.js";
 window.$requireLoader.forceLoadModule("dwds/src/injected/client");
-window.$dartExtensionUri = "http://127.0.0.1:59886/$debug";
+window.$dartExtensionUri = "http://127.0.0.1:51377/$debug";
 
   } else {
     if(window.$dartMainExecuted){
@@ -83,6 +83,7 @@ var baseUrl = (function () {
 let modulePaths = {
  "web_entrypoint.dart": "web_entrypoint.dart.lib",
  "packages/lonely_weeb/main.dart": "packages/lonely_weeb/main.dart.lib",
+ "packages/lonely_weeb/splash.dart": "packages/lonely_weeb/splash.dart.lib",
  "packages/flutter/material.dart": "packages/flutter/material.dart.lib",
  "packages/flutter/widgets.dart": "packages/flutter/widgets.dart.lib",
  "packages/flutter/src/widgets/will_pop_scope.dart": "packages/flutter/src/widgets/will_pop_scope.dart.lib",
@@ -438,11 +439,13 @@ let modulePaths = {
  "packages/flutter/src/material/arc.dart": "packages/flutter/src/material/arc.dart.lib",
  "packages/flutter/src/material/app.dart": "packages/flutter/src/material/app.dart.lib",
  "packages/flutter/src/material/animated_icons.dart": "packages/flutter/src/material/animated_icons.dart.lib",
- "packages/flutter/src/material/about.dart": "packages/flutter/src/material/about.dart.lib"
+ "packages/flutter/src/material/about.dart": "packages/flutter/src/material/about.dart.lib",
+ "packages/lonely_weeb/widgets/findfriends.dart": "packages/lonely_weeb/widgets/findfriends.dart.lib"
 };
 let moduleNames = {
  "web_entrypoint.dart.lib": "web_entrypoint.dart",
  "packages/lonely_weeb/main.dart.lib": "packages/lonely_weeb/main.dart",
+ "packages/lonely_weeb/splash.dart.lib": "packages/lonely_weeb/splash.dart",
  "packages/flutter/material.dart.lib": "packages/flutter/material.dart",
  "packages/flutter/widgets.dart.lib": "packages/flutter/widgets.dart",
  "packages/flutter/src/widgets/will_pop_scope.dart.lib": "packages/flutter/src/widgets/will_pop_scope.dart",
@@ -798,7 +801,8 @@ let moduleNames = {
  "packages/flutter/src/material/arc.dart.lib": "packages/flutter/src/material/arc.dart",
  "packages/flutter/src/material/app.dart.lib": "packages/flutter/src/material/app.dart",
  "packages/flutter/src/material/animated_icons.dart.lib": "packages/flutter/src/material/animated_icons.dart",
- "packages/flutter/src/material/about.dart.lib": "packages/flutter/src/material/about.dart"
+ "packages/flutter/src/material/about.dart.lib": "packages/flutter/src/material/about.dart",
+ "packages/lonely_weeb/widgets/findfriends.dart.lib": "packages/lonely_weeb/widgets/findfriends.dart"
 };
 if(!window.$requireLoader) {
    window.$requireLoader = {

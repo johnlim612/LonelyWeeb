@@ -1,365 +1,438 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__rendering__flow_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/collection/src/utils.dart'], (function load__packages__collection__src__priority_queue_dart(dart_sdk, packages__collection__src__utils$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const ui = dart_sdk.ui;
+  const collection = dart_sdk.collection;
   const _interceptors = dart_sdk._interceptors;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
-  const object$ = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
-  const layer = packages__flutter__src__rendering__layer$46dart.src__rendering__layer;
-  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
-  var flow = Object.create(dart.library);
-  var $_equals = dartx._equals;
-  var $runtimeType = dartx.runtimeType;
-  var $isFinite = dartx.isFinite;
-  var $clear = dartx.clear;
-  var $add = dartx.add;
-  var $length = dartx.length;
+  const utils = packages__collection__src__utils$46dart.src__utils;
+  var priority_queue = Object.create(dart.library);
   var $_get = dartx._get;
+  var $take = dartx.take;
+  var $cast = dartx.cast;
+  var $sort = dartx.sort;
+  var $add = dartx.add;
+  var $toString = dartx.toString;
+  var $length = dartx.length;
+  var $isOdd = dartx.isOdd;
+  var $rightShift = dartx['>>'];
+  var $_set = dartx._set;
+  var $truncate = dartx.truncate;
+  var $setRange = dartx.setRange;
+  var $iterator = dartx.iterator;
   dart._checkModuleNullSafetyMode(true);
   var T = {
-    JSArrayOfRenderBox: () => (T.JSArrayOfRenderBox = dart.constFn(_interceptors.JSArray$(box.RenderBox)))(),
-    JSArrayOfint: () => (T.JSArrayOfint = dart.constFn(_interceptors.JSArray$(core.int)))(),
-    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    PaintingContextAndOffsetTovoid: () => (T.PaintingContextAndOffsetTovoid = dart.constFn(dart.fnType(dart.void, [object$.PaintingContext, ui.Offset])))(),
-    OffsetN: () => (T.OffsetN = dart.constFn(dart.nullable(ui.Offset)))(),
-    BoxHitTestResultAndOffsetNTobool: () => (T.BoxHitTestResultAndOffsetNTobool = dart.constFn(dart.fnType(core.bool, [box.BoxHitTestResult, T.OffsetN()])))()
+    ObjectN: () => (T.ObjectN = dart.constFn(dart.nullable(core.Object)))(),
+    ObjectNAndObjectNToint: () => (T.ObjectNAndObjectNToint = dart.constFn(dart.fnType(core.int, [T.ObjectN(), T.ObjectN()])))()
   };
   const CT = Object.create({
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.const({
-        __proto__: ui.Clip.prototype,
-        [_name]: "Clip.hardEdge",
-        index: 1
-      });
+      return C[0] = dart.fn(utils.defaultCompare, T.ObjectNAndObjectNToint());
+    },
+    get C1() {
+      return C[1] = dart.constList([], core.Null);
     }
   }, false);
-  var C = [void 0];
-  var I = [
-    "package:flutter/src/rendering/flow.dart",
-    "file:///C:/src/flutter/packages/flutter/lib/src/rendering/flow.dart"
-  ];
-  flow.FlowPaintingContext = class FlowPaintingContext extends core.Object {};
-  (flow.FlowPaintingContext.new = function() {
-    ;
-  }).prototype = flow.FlowPaintingContext.prototype;
-  dart.addTypeTests(flow.FlowPaintingContext);
-  dart.addTypeCaches(flow.FlowPaintingContext);
-  dart.setLibraryUri(flow.FlowPaintingContext, I[0]);
-  var _repaint = dart.privateName(flow, "FlowDelegate._repaint");
-  var _repaint$ = dart.privateName(flow, "_repaint");
-  flow.FlowDelegate = class FlowDelegate extends core.Object {
-    get [_repaint$]() {
-      return this[_repaint];
-    }
-    set [_repaint$](value) {
-      super[_repaint$] = value;
-    }
-    getSize(constraints) {
-      return constraints.biggest;
-    }
-    getConstraintsForChild(i, constraints) {
-      return constraints;
-    }
-    shouldRelayout(oldDelegate) {
-      flow.FlowDelegate.as(oldDelegate);
-      return false;
-    }
-    toString() {
-      return object.objectRuntimeType(this, "FlowDelegate");
-    }
-  };
-  (flow.FlowDelegate.new = function(opts) {
-    let repaint = opts && 'repaint' in opts ? opts.repaint : null;
-    this[_repaint] = repaint;
-    ;
-  }).prototype = flow.FlowDelegate.prototype;
-  dart.addTypeTests(flow.FlowDelegate);
-  dart.addTypeCaches(flow.FlowDelegate);
-  dart.setMethodSignature(flow.FlowDelegate, () => ({
-    __proto__: dart.getMethods(flow.FlowDelegate.__proto__),
-    getSize: dart.fnType(ui.Size, [box.BoxConstraints]),
-    getConstraintsForChild: dart.fnType(box.BoxConstraints, [core.int, box.BoxConstraints]),
-    shouldRelayout: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setLibraryUri(flow.FlowDelegate, I[0]);
-  dart.setFieldSignature(flow.FlowDelegate, () => ({
-    __proto__: dart.getFields(flow.FlowDelegate.__proto__),
-    [_repaint$]: dart.finalFieldType(dart.nullable(change_notifier.Listenable))
-  }));
-  dart.defineExtensionMethods(flow.FlowDelegate, ['toString']);
-  var _transform = dart.privateName(flow, "_transform");
-  flow.FlowParentData = class FlowParentData extends box.ContainerBoxParentData$(box.RenderBox) {};
-  (flow.FlowParentData.new = function() {
-    this[_transform] = null;
-    flow.FlowParentData.__proto__.new.call(this);
-    ;
-  }).prototype = flow.FlowParentData.prototype;
-  dart.addTypeTests(flow.FlowParentData);
-  dart.addTypeCaches(flow.FlowParentData);
-  dart.setLibraryUri(flow.FlowParentData, I[0]);
-  dart.setFieldSignature(flow.FlowParentData, () => ({
-    __proto__: dart.getFields(flow.FlowParentData.__proto__),
-    [_transform]: dart.fieldType(dart.nullable(vector_math_64.Matrix4))
-  }));
-  var _name = dart.privateName(ui, "_name");
-  var _clipBehavior = dart.privateName(flow, "_clipBehavior");
-  var _randomAccessChildren = dart.privateName(flow, "_randomAccessChildren");
-  var _lastPaintOrder = dart.privateName(flow, "_lastPaintOrder");
-  var _paintingContext = dart.privateName(flow, "_paintingContext");
-  var _paintingOffset = dart.privateName(flow, "_paintingOffset");
-  var _clipRectLayer = dart.privateName(flow, "_clipRectLayer");
-  var _delegate = dart.privateName(flow, "_delegate");
-  var _getSize = dart.privateName(flow, "_getSize");
-  var _paintWithDelegate = dart.privateName(flow, "_paintWithDelegate");
-  const RenderBox_ContainerRenderObjectMixin$36 = class RenderBox_ContainerRenderObjectMixin extends box.RenderBox {};
-  (RenderBox_ContainerRenderObjectMixin$36.new = function() {
-    object$.ContainerRenderObjectMixin$(box.RenderBox, flow.FlowParentData)[dart.mixinNew].call(this);
-    RenderBox_ContainerRenderObjectMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_ContainerRenderObjectMixin$36.prototype;
-  dart.applyMixin(RenderBox_ContainerRenderObjectMixin$36, object$.ContainerRenderObjectMixin$(box.RenderBox, flow.FlowParentData));
-  const RenderBox_RenderBoxContainerDefaultsMixin$36 = class RenderBox_RenderBoxContainerDefaultsMixin extends RenderBox_ContainerRenderObjectMixin$36 {};
-  (RenderBox_RenderBoxContainerDefaultsMixin$36.new = function() {
-    RenderBox_RenderBoxContainerDefaultsMixin$36.__proto__.new.call(this);
-  }).prototype = RenderBox_RenderBoxContainerDefaultsMixin$36.prototype;
-  dart.applyMixin(RenderBox_RenderBoxContainerDefaultsMixin$36, box.RenderBoxContainerDefaultsMixin$(box.RenderBox, flow.FlowParentData));
-  flow.RenderFlow = class RenderFlow extends RenderBox_RenderBoxContainerDefaultsMixin$36 {
-    setupParentData(child) {
-      box.RenderBox.as(child);
-      let childParentData = child.parentData;
-      if (flow.FlowParentData.is(childParentData))
-        childParentData[_transform] = null;
-      else
-        child.parentData = new flow.FlowParentData.new();
-    }
-    get delegate() {
-      return this[_delegate];
-    }
-    set delegate(newDelegate) {
-      let t0, t0$;
-      if (!(newDelegate !== null)) dart.assertFailed(null, I[1], 211, 12, "newDelegate != null");
-      if (this[_delegate][$_equals](newDelegate)) return;
-      let oldDelegate = this[_delegate];
-      this[_delegate] = newDelegate;
-      if (!newDelegate[$runtimeType]._equals(oldDelegate[$runtimeType]) || newDelegate.shouldRelayout(oldDelegate))
-        this.markNeedsLayout();
-      else if (newDelegate.shouldRepaint(oldDelegate)) this.markNeedsPaint();
-      if (this.attached) {
-        t0 = oldDelegate[_repaint$];
-        t0 == null ? null : t0.removeListener(dart.bind(this, 'markNeedsPaint'));
-        t0$ = newDelegate[_repaint$];
-        t0$ == null ? null : t0$.addListener(dart.bind(this, 'markNeedsPaint'));
+  var C = Array(2).fill(void 0);
+  var I = ["package:collection/src/priority_queue.dart"];
+  const _is_PriorityQueue_default = Symbol('_is_PriorityQueue_default');
+  priority_queue.PriorityQueue$ = dart.generic(E => {
+    class PriorityQueue extends core.Object {}
+    (PriorityQueue[dart.mixinNew] = function() {
+    }).prototype = PriorityQueue.prototype;
+    dart.addTypeTests(PriorityQueue);
+    PriorityQueue.prototype[_is_PriorityQueue_default] = true;
+    dart.addTypeCaches(PriorityQueue);
+    dart.setLibraryUri(PriorityQueue, I[0]);
+    return PriorityQueue;
+  });
+  priority_queue.PriorityQueue = priority_queue.PriorityQueue$();
+  dart.addTypeTests(priority_queue.PriorityQueue, _is_PriorityQueue_default);
+  var comparison$ = dart.privateName(priority_queue, "HeapPriorityQueue.comparison");
+  var _queue$ = dart.privateName(priority_queue, "_queue");
+  var _length = dart.privateName(priority_queue, "_length");
+  var _modificationCount = dart.privateName(priority_queue, "_modificationCount");
+  var _elementAt = dart.privateName(priority_queue, "_elementAt");
+  var _add = dart.privateName(priority_queue, "_add");
+  var _locate = dart.privateName(priority_queue, "_locate");
+  var _removeLast = dart.privateName(priority_queue, "_removeLast");
+  var _bubbleUp = dart.privateName(priority_queue, "_bubbleUp");
+  var _bubbleDown = dart.privateName(priority_queue, "_bubbleDown");
+  var _toUnorderedList = dart.privateName(priority_queue, "_toUnorderedList");
+  var _grow = dart.privateName(priority_queue, "_grow");
+  const _is_HeapPriorityQueue_default = Symbol('_is_HeapPriorityQueue_default');
+  priority_queue.HeapPriorityQueue$ = dart.generic(E => {
+    var EN = () => (EN = dart.constFn(dart.nullable(E)))();
+    var ListOfEN = () => (ListOfEN = dart.constFn(core.List$(EN())))();
+    var IterableOfE = () => (IterableOfE = dart.constFn(core.Iterable$(E)))();
+    var _UnorderedElementsIterableOfE = () => (_UnorderedElementsIterableOfE = dart.constFn(priority_queue._UnorderedElementsIterable$(E)))();
+    var SplayTreeSetOfE = () => (SplayTreeSetOfE = dart.constFn(collection.SplayTreeSet$(E)))();
+    var JSArrayOfE = () => (JSArrayOfE = dart.constFn(_interceptors.JSArray$(E)))();
+    class HeapPriorityQueue extends core.Object {
+      get comparison() {
+        return this[comparison$];
       }
-    }
-    get clipBehavior() {
-      return this[_clipBehavior];
-    }
-    set clipBehavior(value) {
-      if (!(value !== null)) dart.assertFailed(null, I[1], 234, 12, "value != null");
-      if (value !== this[_clipBehavior]) {
-        this[_clipBehavior] = value;
-        this.markNeedsPaint();
-        this.markNeedsSemanticsUpdate();
+      set comparison(value) {
+        super.comparison = value;
       }
-    }
-    attach(owner) {
-      let t0;
-      object$.PipelineOwner.as(owner);
-      super.attach(owner);
-      t0 = this[_delegate][_repaint$];
-      t0 == null ? null : t0.addListener(dart.bind(this, 'markNeedsPaint'));
-    }
-    detach() {
-      let t0;
-      t0 = this[_delegate][_repaint$];
-      t0 == null ? null : t0.removeListener(dart.bind(this, 'markNeedsPaint'));
-      super.detach();
-    }
-    [_getSize](constraints) {
-      if (!constraints.debugAssertIsValid()) dart.assertFailed(null, I[1], 255, 12, "constraints.debugAssertIsValid()");
-      return constraints.constrain(this[_delegate].getSize(constraints));
-    }
-    get isRepaintBoundary() {
-      return true;
-    }
-    computeMinIntrinsicWidth(height) {
-      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
-      if (width[$isFinite]) return width;
-      return 0.0;
-    }
-    computeMaxIntrinsicWidth(height) {
-      let width = this[_getSize](new box.BoxConstraints.tightForFinite({height: height})).width;
-      if (width[$isFinite]) return width;
-      return 0.0;
-    }
-    computeMinIntrinsicHeight(width) {
-      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
-      if (height[$isFinite]) return height;
-      return 0.0;
-    }
-    computeMaxIntrinsicHeight(width) {
-      let height = this[_getSize](new box.BoxConstraints.tightForFinite({width: width})).height;
-      if (height[$isFinite]) return height;
-      return 0.0;
-    }
-    computeDryLayout(constraints) {
-      return this[_getSize](constraints);
-    }
-    performLayout() {
-      let constraints = this.constraints;
-      this.size = this[_getSize](constraints);
-      let i = 0;
-      this[_randomAccessChildren][$clear]();
-      let child = this.firstChild;
-      while (child != null) {
-        this[_randomAccessChildren][$add](child);
-        let innerConstraints = this[_delegate].getConstraintsForChild(i, constraints);
-        child.layout(innerConstraints, {parentUsesSize: true});
-        let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
-        childParentData.offset = ui.Offset.zero;
-        child = childParentData.nextSibling;
-        i = i + 1;
+      [_elementAt](index) {
+        let t0;
+        t0 = this[_queue$][$_get](index);
+        return t0 == null ? E.as(null) : t0;
       }
-    }
-    getChildSize(i) {
-      if (i < 0 || i >= this[_randomAccessChildren][$length]) return null;
-      return this[_randomAccessChildren][$_get](i).size;
-    }
-    paintChild(i, opts) {
-      let transform = opts && 'transform' in opts ? opts.transform : null;
-      let opacity = opts && 'opacity' in opts ? opts.opacity : 1;
-      transform == null ? transform = vector_math_64.Matrix4.identity() : null;
-      let child = this[_randomAccessChildren][$_get](i);
-      let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
-      if (!dart.fn(() => {
-        if (childParentData[_transform] != null) {
-          dart.throw(assertions.FlutterError.new("Cannot call paintChild twice for the same child.\n" + "The flow delegate of type " + dart.str(this[_delegate][$runtimeType]) + " attempted to " + "paint child " + dart.str(i) + " multiple times, which is not permitted."));
+      add(element) {
+        E.as(element);
+        this[_modificationCount] = this[_modificationCount] + 1;
+        this[_add](element);
+      }
+      addAll(elements) {
+        IterableOfE().as(elements);
+        let modified = 0;
+        for (let element of elements) {
+          modified = 1;
+          this[_add](element);
+        }
+        this[_modificationCount] = this[_modificationCount] + modified;
+      }
+      clear() {
+        this[_modificationCount] = this[_modificationCount] + 1;
+        this[_queue$] = C[1] || CT.C1;
+        this[_length] = 0;
+      }
+      contains(object) {
+        E.as(object);
+        return this[_locate](object) >= 0;
+      }
+      get unorderedElements() {
+        return new (_UnorderedElementsIterableOfE()).new(this);
+      }
+      get first() {
+        if (this[_length] === 0) dart.throw(new core.StateError.new("No element"));
+        return this[_elementAt](0);
+      }
+      get isEmpty() {
+        return this[_length] === 0;
+      }
+      get isNotEmpty() {
+        return this[_length] !== 0;
+      }
+      get length() {
+        return this[_length];
+      }
+      remove(element) {
+        let t1, t0;
+        E.as(element);
+        let index = this[_locate](element);
+        if (index < 0) return false;
+        this[_modificationCount] = this[_modificationCount] + 1;
+        let last = this[_removeLast]();
+        if (index < this[_length]) {
+          let comp = (t0 = last, t1 = element, this.comparison(t0, t1));
+          if (comp <= 0) {
+            this[_bubbleUp](last, index);
+          } else {
+            this[_bubbleDown](last, index);
+          }
         }
         return true;
-      }, T.VoidTobool())()) dart.assertFailed(null, I[1], 343, 12, "() {\r\n      if (childParentData._transform != null) {\r\n        throw FlutterError(\r\n          'Cannot call paintChild twice for the same child.\\n'\r\n          'The flow delegate of type ${_delegate.runtimeType} attempted to '\r\n          'paint child $i multiple times, which is not permitted.',\r\n        );\r\n      }\r\n      return true;\r\n    }()");
-      this[_lastPaintOrder][$add](i);
-      childParentData[_transform] = transform;
-      if (opacity === 0.0) return;
-      function painter(context, offset) {
-        context.paintChild(child, offset);
       }
-      dart.fn(painter, T.PaintingContextAndOffsetTovoid());
-      if (opacity === 1.0) {
-        dart.nullCheck(this[_paintingContext]).pushTransform(this.needsCompositing, dart.nullCheck(this[_paintingOffset]), transform, painter);
-      } else {
-        dart.nullCheck(this[_paintingContext]).pushOpacity(dart.nullCheck(this[_paintingOffset]), ui.Color.getAlphaFromOpacity(opacity), dart.fn((context, offset) => {
-          context.pushTransform(this.needsCompositing, offset, dart.nullCheck(transform), painter);
-        }, T.PaintingContextAndOffsetTovoid()));
+      removeAll() {
+        this[_modificationCount] = this[_modificationCount] + 1;
+        let result = this[_queue$];
+        let length = this[_length];
+        this[_queue$] = C[1] || CT.C1;
+        this[_length] = 0;
+        return result[$take](length)[$cast](E);
+      }
+      removeFirst() {
+        if (this[_length] === 0) dart.throw(new core.StateError.new("No element"));
+        this[_modificationCount] = this[_modificationCount] + 1;
+        let result = this[_elementAt](0);
+        let last = this[_removeLast]();
+        if (this[_length] > 0) {
+          this[_bubbleDown](last, 0);
+        }
+        return result;
+      }
+      toList() {
+        let t0;
+        t0 = this[_toUnorderedList]();
+        return (() => {
+          t0[$sort](this.comparison);
+          return t0;
+        })();
+      }
+      toSet() {
+        let set = new (SplayTreeSetOfE()).new(this.comparison);
+        for (let i = 0; i < this[_length]; i = i + 1) {
+          set.add(this[_elementAt](i));
+        }
+        return set;
+      }
+      toUnorderedList() {
+        return this[_toUnorderedList]();
+      }
+      [_toUnorderedList]() {
+        return (() => {
+          let t0 = JSArrayOfE().of([]);
+          for (let i = 0; i < this[_length]; i = i + 1)
+            t0[$add](this[_elementAt](i));
+          return t0;
+        })();
+      }
+      toString() {
+        return this[_queue$][$take](this[_length])[$toString]();
+      }
+      [_add](element) {
+        let t1;
+        if (this[_length] === this[_queue$][$length]) this[_grow]();
+        this[_bubbleUp](element, (t1 = this[_length], this[_length] = t1 + 1, t1));
+      }
+      [_locate](object) {
+        let t2, t1;
+        if (this[_length] === 0) return -1;
+        let position = 1;
+        do {
+          let index = position - 1;
+          let element = this[_elementAt](index);
+          let comp = (t1 = element, t2 = object, this.comparison(t1, t2));
+          if (comp <= 0) {
+            if (comp === 0 && dart.equals(element, object)) return index;
+            let leftChildPosition = position * 2;
+            if (leftChildPosition <= this[_length]) {
+              position = leftChildPosition;
+              continue;
+            }
+          }
+          do {
+            while (position[$isOdd]) {
+              position = position[$rightShift](1);
+            }
+            position = position + 1;
+          } while (position > this[_length]);
+        } while (position !== 1);
+        return -1;
+      }
+      [_removeLast]() {
+        let newLength = this[_length] - 1;
+        let last = this[_elementAt](newLength);
+        this[_queue$][$_set](newLength, null);
+        this[_length] = newLength;
+        return last;
+      }
+      [_bubbleUp](element, index) {
+        let t2, t1;
+        while (index > 0) {
+          let parentIndex = ((index - 1) / 2)[$truncate]();
+          let parent = this[_elementAt](parentIndex);
+          if ((t1 = element, t2 = parent, this.comparison(t1, t2)) > 0) break;
+          this[_queue$][$_set](index, parent);
+          index = parentIndex;
+        }
+        this[_queue$][$_set](index, element);
+      }
+      [_bubbleDown](element, index) {
+        let t2, t1, t2$, t1$, t2$0, t1$0;
+        let rightChildIndex = index * 2 + 2;
+        while (rightChildIndex < this[_length]) {
+          let leftChildIndex = rightChildIndex - 1;
+          let leftChild = this[_elementAt](leftChildIndex);
+          let rightChild = this[_elementAt](rightChildIndex);
+          let comp = (t1 = leftChild, t2 = rightChild, this.comparison(t1, t2));
+          let minChildIndex = null;
+          let minChild = null;
+          if (comp < 0) {
+            minChild = leftChild;
+            minChildIndex = leftChildIndex;
+          } else {
+            minChild = rightChild;
+            minChildIndex = rightChildIndex;
+          }
+          comp = (t1$ = element, t2$ = minChild, this.comparison(t1$, t2$));
+          if (comp <= 0) {
+            this[_queue$][$_set](index, element);
+            return;
+          }
+          this[_queue$][$_set](index, minChild);
+          index = minChildIndex;
+          rightChildIndex = index * 2 + 2;
+        }
+        let leftChildIndex = rightChildIndex - 1;
+        if (leftChildIndex < this[_length]) {
+          let child = this[_elementAt](leftChildIndex);
+          let comp = (t1$0 = element, t2$0 = child, this.comparison(t1$0, t2$0));
+          if (comp > 0) {
+            this[_queue$][$_set](index, child);
+            index = leftChildIndex;
+          }
+        }
+        this[_queue$][$_set](index, element);
+      }
+      [_grow]() {
+        let newCapacity = this[_queue$][$length] * 2 + 1;
+        if (newCapacity < 7) newCapacity = 7;
+        let newQueue = ListOfEN().filled(newCapacity, null);
+        newQueue[$setRange](0, this[_length], this[_queue$]);
+        this[_queue$] = newQueue;
       }
     }
-    [_paintWithDelegate](context, offset) {
-      this[_lastPaintOrder][$clear]();
-      this[_paintingContext] = context;
-      this[_paintingOffset] = offset;
-      for (let child of this[_randomAccessChildren]) {
-        let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
-        childParentData[_transform] = null;
-      }
-      try {
-        this[_delegate].paintChildren(this);
-      } finally {
-        this[_paintingContext] = null;
-        this[_paintingOffset] = null;
+    (HeapPriorityQueue.new = function(comparison = null) {
+      let t0;
+      this[_queue$] = ListOfEN().filled(7, null);
+      this[_length] = 0;
+      this[_modificationCount] = 0;
+      this[comparison$] = (t0 = comparison, t0 == null ? C[0] || CT.C0 : t0);
+      ;
+    }).prototype = HeapPriorityQueue.prototype;
+    dart.addTypeTests(HeapPriorityQueue);
+    HeapPriorityQueue.prototype[_is_HeapPriorityQueue_default] = true;
+    dart.addTypeCaches(HeapPriorityQueue);
+    HeapPriorityQueue[dart.implements] = () => [priority_queue.PriorityQueue$(E)];
+    dart.setMethodSignature(HeapPriorityQueue, () => ({
+      __proto__: dart.getMethods(HeapPriorityQueue.__proto__),
+      [_elementAt]: dart.fnType(E, [core.int]),
+      add: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      addAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
+      clear: dart.fnType(dart.void, []),
+      contains: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      remove: dart.fnType(core.bool, [dart.nullable(core.Object)]),
+      removeAll: dart.fnType(core.Iterable$(E), []),
+      removeFirst: dart.fnType(E, []),
+      toList: dart.fnType(core.List$(E), []),
+      toSet: dart.fnType(core.Set$(E), []),
+      toUnorderedList: dart.fnType(core.List$(E), []),
+      [_toUnorderedList]: dart.fnType(core.List$(E), []),
+      [_add]: dart.fnType(dart.void, [E]),
+      [_locate]: dart.fnType(core.int, [E]),
+      [_removeLast]: dart.fnType(E, []),
+      [_bubbleUp]: dart.fnType(dart.void, [E, core.int]),
+      [_bubbleDown]: dart.fnType(dart.void, [E, core.int]),
+      [_grow]: dart.fnType(dart.void, [])
+    }));
+    dart.setGetterSignature(HeapPriorityQueue, () => ({
+      __proto__: dart.getGetters(HeapPriorityQueue.__proto__),
+      unorderedElements: core.Iterable$(E),
+      first: E,
+      isEmpty: core.bool,
+      isNotEmpty: core.bool,
+      length: core.int
+    }));
+    dart.setLibraryUri(HeapPriorityQueue, I[0]);
+    dart.setFieldSignature(HeapPriorityQueue, () => ({
+      __proto__: dart.getFields(HeapPriorityQueue.__proto__),
+      comparison: dart.finalFieldType(dart.fnType(core.int, [E, E])),
+      [_queue$]: dart.fieldType(core.List$(dart.nullable(E))),
+      [_length]: dart.fieldType(core.int),
+      [_modificationCount]: dart.fieldType(core.int)
+    }));
+    dart.defineExtensionMethods(HeapPriorityQueue, ['toString']);
+    return HeapPriorityQueue;
+  });
+  priority_queue.HeapPriorityQueue = priority_queue.HeapPriorityQueue$();
+  dart.defineLazy(priority_queue.HeapPriorityQueue, {
+    /*priority_queue.HeapPriorityQueue._INITIAL_CAPACITY*/get _INITIAL_CAPACITY() {
+      return 7;
+    }
+  }, false);
+  dart.addTypeTests(priority_queue.HeapPriorityQueue, _is_HeapPriorityQueue_default);
+  const _is__UnorderedElementsIterable_default = Symbol('_is__UnorderedElementsIterable_default');
+  priority_queue._UnorderedElementsIterable$ = dart.generic(E => {
+    var _UnorderedElementsIteratorOfE = () => (_UnorderedElementsIteratorOfE = dart.constFn(priority_queue._UnorderedElementsIterator$(E)))();
+    class _UnorderedElementsIterable extends core.Iterable$(E) {
+      get iterator() {
+        return new (_UnorderedElementsIteratorOfE()).new(this[_queue$]);
       }
     }
-    paint(context, offset) {
-      if (this.clipBehavior === ui.Clip.none) {
-        this[_clipRectLayer] = null;
-        this[_paintWithDelegate](context, offset);
-      } else {
-        this[_clipRectLayer] = context.pushClipRect(this.needsCompositing, offset, ui.Offset.zero['&'](this.size), dart.bind(this, _paintWithDelegate), {clipBehavior: this.clipBehavior, oldLayer: this[_clipRectLayer]});
+    (_UnorderedElementsIterable.new = function(_queue) {
+      this[_queue$] = _queue;
+      _UnorderedElementsIterable.__proto__.new.call(this);
+      ;
+    }).prototype = _UnorderedElementsIterable.prototype;
+    dart.addTypeTests(_UnorderedElementsIterable);
+    _UnorderedElementsIterable.prototype[_is__UnorderedElementsIterable_default] = true;
+    dart.addTypeCaches(_UnorderedElementsIterable);
+    dart.setGetterSignature(_UnorderedElementsIterable, () => ({
+      __proto__: dart.getGetters(_UnorderedElementsIterable.__proto__),
+      iterator: core.Iterator$(E),
+      [$iterator]: core.Iterator$(E)
+    }));
+    dart.setLibraryUri(_UnorderedElementsIterable, I[0]);
+    dart.setFieldSignature(_UnorderedElementsIterable, () => ({
+      __proto__: dart.getFields(_UnorderedElementsIterable.__proto__),
+      [_queue$]: dart.finalFieldType(priority_queue.HeapPriorityQueue$(E))
+    }));
+    dart.defineExtensionAccessors(_UnorderedElementsIterable, ['iterator']);
+    return _UnorderedElementsIterable;
+  });
+  priority_queue._UnorderedElementsIterable = priority_queue._UnorderedElementsIterable$();
+  dart.addTypeTests(priority_queue._UnorderedElementsIterable, _is__UnorderedElementsIterable_default);
+  var _current = dart.privateName(priority_queue, "_current");
+  var _index = dart.privateName(priority_queue, "_index");
+  var _initialModificationCount = dart.privateName(priority_queue, "_initialModificationCount");
+  const _is__UnorderedElementsIterator_default = Symbol('_is__UnorderedElementsIterator_default');
+  priority_queue._UnorderedElementsIterator$ = dart.generic(E => {
+    class _UnorderedElementsIterator extends core.Object {
+      moveNext() {
+        if (this[_initialModificationCount] !== this[_queue$][_modificationCount]) {
+          dart.throw(new core.ConcurrentModificationError.new(this[_queue$]));
+        }
+        let nextIndex = this[_index] + 1;
+        if (0 <= nextIndex && nextIndex < this[_queue$].length) {
+          this[_current] = this[_queue$][_queue$][$_get](nextIndex);
+          this[_index] = nextIndex;
+          return true;
+        }
+        this[_current] = null;
+        this[_index] = -2;
+        return false;
+      }
+      get current() {
+        let t1;
+        return this[_index] < 0 ? dart.throw(new core.StateError.new("No element")) : (t1 = this[_current], t1 == null ? E.as(null) : t1);
       }
     }
-    hitTestChildren(result, opts) {
-      let position = opts && 'position' in opts ? opts.position : null;
-      let children = this.getChildrenAsList();
-      for (let i = this[_lastPaintOrder][$length] - 1; i >= 0; i = i - 1) {
-        let childIndex = this[_lastPaintOrder][$_get](i);
-        if (childIndex >= children[$length]) continue;
-        let child = children[$_get](childIndex);
-        let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
-        let transform = childParentData[_transform];
-        if (transform == null) continue;
-        let absorbed = result.addWithPaintTransform({transform: transform, position: position, hitTest: dart.fn((result, position) => child.hitTest(result, {position: dart.nullCheck(position)}), T.BoxHitTestResultAndOffsetNTobool())});
-        if (absorbed) return true;
-      }
-      return false;
-    }
-    applyPaintTransform(child, transform) {
-      box.RenderBox.as(child);
-      let childParentData = flow.FlowParentData.as(dart.nullCheck(child.parentData));
-      if (childParentData[_transform] != null) transform.multiply(dart.nullCheck(childParentData[_transform]));
-      super.applyPaintTransform(child, transform);
-    }
-  };
-  (flow.RenderFlow.new = function(opts) {
-    let children = opts && 'children' in opts ? opts.children : null;
-    let delegate = opts && 'delegate' in opts ? opts.delegate : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[0] || CT.C0;
-    this[_clipBehavior] = ui.Clip.hardEdge;
-    this[_randomAccessChildren] = T.JSArrayOfRenderBox().of([]);
-    this[_lastPaintOrder] = T.JSArrayOfint().of([]);
-    this[_paintingContext] = null;
-    this[_paintingOffset] = null;
-    this[_clipRectLayer] = null;
-    if (!(delegate !== null)) dart.assertFailed(null, I[1], 186, 15, "delegate != null");
-    if (!(clipBehavior !== null)) dart.assertFailed(null, I[1], 187, 15, "clipBehavior != null");
-    this[_delegate] = delegate;
-    this[_clipBehavior] = clipBehavior;
-    flow.RenderFlow.__proto__.new.call(this);
-    this.addAll(children);
-  }).prototype = flow.RenderFlow.prototype;
-  dart.addTypeTests(flow.RenderFlow);
-  dart.addTypeCaches(flow.RenderFlow);
-  flow.RenderFlow[dart.implements] = () => [flow.FlowPaintingContext];
-  dart.setMethodSignature(flow.RenderFlow, () => ({
-    __proto__: dart.getMethods(flow.RenderFlow.__proto__),
-    [_getSize]: dart.fnType(ui.Size, [box.BoxConstraints]),
-    getChildSize: dart.fnType(dart.nullable(ui.Size), [core.int]),
-    paintChild: dart.fnType(dart.void, [core.int], {opacity: core.double, transform: dart.nullable(vector_math_64.Matrix4)}, {}),
-    [_paintWithDelegate]: dart.fnType(dart.void, [object$.PaintingContext, ui.Offset])
-  }));
-  dart.setGetterSignature(flow.RenderFlow, () => ({
-    __proto__: dart.getGetters(flow.RenderFlow.__proto__),
-    delegate: flow.FlowDelegate,
-    clipBehavior: ui.Clip
-  }));
-  dart.setSetterSignature(flow.RenderFlow, () => ({
-    __proto__: dart.getSetters(flow.RenderFlow.__proto__),
-    delegate: flow.FlowDelegate,
-    clipBehavior: ui.Clip
-  }));
-  dart.setLibraryUri(flow.RenderFlow, I[0]);
-  dart.setFieldSignature(flow.RenderFlow, () => ({
-    __proto__: dart.getFields(flow.RenderFlow.__proto__),
-    [_delegate]: dart.fieldType(flow.FlowDelegate),
-    [_clipBehavior]: dart.fieldType(ui.Clip),
-    [_randomAccessChildren]: dart.finalFieldType(core.List$(box.RenderBox)),
-    [_lastPaintOrder]: dart.finalFieldType(core.List$(core.int)),
-    [_paintingContext]: dart.fieldType(dart.nullable(object$.PaintingContext)),
-    [_paintingOffset]: dart.fieldType(dart.nullable(ui.Offset)),
-    [_clipRectLayer]: dart.fieldType(dart.nullable(layer.ClipRectLayer))
-  }));
-  dart.trackLibraries("packages/flutter/src/rendering/flow.dart", {
-    "package:flutter/src/rendering/flow.dart": flow
+    (_UnorderedElementsIterator.new = function(_queue) {
+      this[_current] = null;
+      this[_index] = -1;
+      this[_queue$] = _queue;
+      this[_initialModificationCount] = _queue[_modificationCount];
+      ;
+    }).prototype = _UnorderedElementsIterator.prototype;
+    dart.addTypeTests(_UnorderedElementsIterator);
+    _UnorderedElementsIterator.prototype[_is__UnorderedElementsIterator_default] = true;
+    dart.addTypeCaches(_UnorderedElementsIterator);
+    _UnorderedElementsIterator[dart.implements] = () => [core.Iterator$(E)];
+    dart.setMethodSignature(_UnorderedElementsIterator, () => ({
+      __proto__: dart.getMethods(_UnorderedElementsIterator.__proto__),
+      moveNext: dart.fnType(core.bool, [])
+    }));
+    dart.setGetterSignature(_UnorderedElementsIterator, () => ({
+      __proto__: dart.getGetters(_UnorderedElementsIterator.__proto__),
+      current: E
+    }));
+    dart.setLibraryUri(_UnorderedElementsIterator, I[0]);
+    dart.setFieldSignature(_UnorderedElementsIterator, () => ({
+      __proto__: dart.getFields(_UnorderedElementsIterator.__proto__),
+      [_queue$]: dart.finalFieldType(priority_queue.HeapPriorityQueue$(E)),
+      [_initialModificationCount]: dart.finalFieldType(core.int),
+      [_current]: dart.fieldType(dart.nullable(E)),
+      [_index]: dart.fieldType(core.int)
+    }));
+    return _UnorderedElementsIterator;
+  });
+  priority_queue._UnorderedElementsIterator = priority_queue._UnorderedElementsIterator$();
+  dart.addTypeTests(priority_queue._UnorderedElementsIterator, _is__UnorderedElementsIterator_default);
+  dart.trackLibraries("packages/collection/src/priority_queue.dart", {
+    "package:collection/src/priority_queue.dart": priority_queue
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["flow.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/rendering/flow.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["priority_queue.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/collection/src/priority_queue.dart.lib.js"}');
   // Exports:
   return {
-    src__rendering__flow: flow
+    src__priority_queue: priority_queue
   };
 }));
 
-//# sourceMappingURL=flow.dart.lib.js.map
+//# sourceMappingURL=priority_queue.dart.lib.js.map
